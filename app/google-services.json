@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "672694236370",
+    "project_id": "morgan-movies",
+    "storage_bucket": "morgan-movies.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672694236370:android:276342d20e950b30bda90b",
+        "android_client_info": {
+          "package_name": "com.example.ds_movies"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672694236370-t7etdgl9d267kdlqr24tb8gvdqjqqmt1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8lk4OpkwdfysJHjtTOyfcrJXZHiSPaGI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672694236370-t7etdgl9d267kdlqr24tb8gvdqjqqmt1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

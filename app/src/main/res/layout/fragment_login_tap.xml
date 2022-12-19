@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.example.ds_movies.ui.login.LoginViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:outlineSpotShadowColor="@color/Red"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <EditText
+            android:id="@+id/et_email_login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Enter your email address"
+            android:fontFamily="@font/comic_sans"
+            android:textColor="@color/black"
+            android:textColorHint="@color/silver"
+            android:text="@={vm.email}"
+            android:padding="10dp"
+            android:textSize="12sp"
+            android:background="@drawable/shape_edit_text"
+            android:layout_marginTop="80dp"
+            app:layout_constraintWidth_percent=".8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_email_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Email Error"
+            android:text="@{vm.errorMessageEmail}"
+            android:visibility="@{vm.emailError?View.VISIBLE:View.GONE}"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/comic_sans"
+            android:textColorHint="@color/Red"
+            android:textColor="@color/Red"
+            android:textSize="12sp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="@+id/et_email_login"
+            app:layout_constraintTop_toBottomOf="@+id/et_email_login" />
+
+        <EditText
+            android:id="@+id/et_password_login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Enter your password"
+            android:inputType="textPassword"
+            android:fontFamily="@font/comic_sans"
+            android:textColorHint="@color/silver"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:textSize="12sp"
+            android:text="@={vm.password}"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/shape_edit_text"
+            app:layout_constraintWidth_percent=".8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_email_login" />
+
+        <TextView
+            android:id="@+id/tv_password_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Password Error"
+            android:text="@{vm.errorMessagePassword}"
+            android:visibility="@{vm.passwordError?View.VISIBLE:View.GONE}"
+            android:fontFamily="@font/comic_sans"
+            android:textColorHint="@color/Red"
+            android:textColor="@color/Red"
+            android:textSize="12sp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="@+id/et_password_login"
+            app:layout_constraintTop_toBottomOf="@+id/et_password_login" />
+
+
+        <TextView
+            style="@style/Theme.LoginTextStyle"
+            android:id="@+id/tv_email_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Email *"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/et_email_login"
+            app:layout_constraintStart_toStartOf="@+id/et_email_login" />
+
+        <TextView
+            android:id="@+id/tv_password_login"
+            style="@style/Theme.LoginTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Password *"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/et_password_login"
+            app:layout_constraintStart_toStartOf="@+id/et_password_login" />
+
+        <TextView
+            android:id="@+id/tv_forget_password_login"
+            style="@style/Theme.LoginTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forget Password"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/et_password_login"
+            app:layout_constraintTop_toBottomOf="@+id/et_password_login" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:onClick="@{ () -> vm.login()}"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:textColor="@color/white"
+            android:background="@drawable/shape_button"
+            android:fontFamily="@font/comic_sans"
+            android:layout_marginTop="70dp"
+            app:layout_constraintWidth_percent=".3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_password_login" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
