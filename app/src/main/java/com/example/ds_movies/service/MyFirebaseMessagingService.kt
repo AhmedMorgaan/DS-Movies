@@ -1,4 +1,4 @@
-package com.example.ds_movies
+package com.example.ds_movies.service
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -10,6 +10,8 @@ import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.example.ds_movies.R
+import com.example.ds_movies.ui.SomaActivity
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
@@ -31,10 +33,14 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             nm.createNotificationChannel(channel)
         }
 
-        val intent = Intent(this,SomaActivity::class.java)
+        val intent = Intent(this, SomaActivity::class.java)
         val pi :PendingIntent = PendingIntent.getActivity(this,0,intent,0)
-        val bitmap :Bitmap = BitmapFactory.decodeResource(applicationContext.resources,R.drawable.love_you)
-        val bitmapLargeIcon :Bitmap = BitmapFactory.decodeResource(applicationContext.resources,R.drawable.ds)
+        val bitmap :Bitmap = BitmapFactory.decodeResource(applicationContext.resources,
+            R.drawable.love_you
+        )
+        val bitmapLargeIcon :Bitmap = BitmapFactory.decodeResource(applicationContext.resources,
+            R.drawable.ds
+        )
 
 val build = NotificationCompat.Builder(this,CHANNEL_ID)
         build.setSmallIcon(R.drawable.ds_light)

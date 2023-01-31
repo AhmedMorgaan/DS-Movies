@@ -1,30 +1,27 @@
 package com.example.ds_movies.ui.login
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.example.d_note.Base.BaseFragment
 import com.example.ds_movies.R
-import com.example.ds_movies.SomaActivity
 import com.example.ds_movies.databinding.FragmentLoginTapBinding
 import kotlinx.android.synthetic.main.fragment_login_tap.*
 
 class LoginFragment :BaseFragment<FragmentLoginTapBinding,LoginViewModel>(R.layout.fragment_login_tap) {
 
-   // override val viewModel= ViewModelProvider(this).get(LoginViewModel::class.java)
     override val viewModel by viewModels<LoginViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
-        binding.setLifecycleOwner { this.lifecycle }
+       // binding.setLifecycleOwner { this.lifecycle }
 
         viewModel.authUser.observe(viewLifecycleOwner, Observer {
-            val intent = Intent(context,SomaActivity::class.java)
-            startActivity(intent)
+            findNavController().navigate(R.id.action_loginFragment_to_moviesPopularFragment)
         })
 
 

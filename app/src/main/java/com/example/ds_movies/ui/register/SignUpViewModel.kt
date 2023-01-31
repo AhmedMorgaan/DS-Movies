@@ -2,10 +2,10 @@ package com.example.ds_movies.ui.register
 
 import android.util.Patterns
 import androidx.lifecycle.MutableLiveData
-import com.example.ds_movies.Base.BaseViewModel
+import com.example.ds_movies.ui.base.BaseViewModel
 import com.google.firebase.auth.FirebaseAuth
 
-class SignUpViewModel :BaseViewModel() {
+class SignUpViewModel : BaseViewModel() {
 
     val fName = MutableLiveData<String>()
     val lName = MutableLiveData<String>()
@@ -68,7 +68,6 @@ class SignUpViewModel :BaseViewModel() {
         if ( !confirmPassword.value.isNullOrEmpty() && !confirmPassword.value.equals("null",true)
             && confirmPassword.value!!.trim().isNotEmpty() && confirmPassword.value!!.length >= 8
             && password.value == confirmPassword.value ) { null }
-
         else{
             confirmPasswordError.value= true
             isValid = false }

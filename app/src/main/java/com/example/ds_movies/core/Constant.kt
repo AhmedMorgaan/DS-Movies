@@ -1,4 +1,4 @@
-package com.example.ds_movies
+package com.example.ds_movies.core
 
 class Constant {
     companion object{

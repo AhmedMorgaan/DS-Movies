@@ -9,10 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import com.example.ds_movies.Base.BaseViewModel
+import com.example.ds_movies.ui.base.BaseViewModel
 import kotlinx.android.synthetic.main.fragment_login_tap.view.*
 
-open abstract class BaseFragment<T : ViewDataBinding , VM : BaseViewModel>(resId :Int) : Fragment(resId) {
+abstract class BaseFragment<T : ViewDataBinding , VM : BaseViewModel>(resId :Int) : Fragment(resId) {
     lateinit var activity : AppCompatActivity
 
     lateinit var binding :T

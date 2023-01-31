@@ -1,4 +1,4 @@
-package com.example.ds_movies.model
+package com.example.ds_movies.data
 
 import com.google.gson.annotations.SerializedName
 

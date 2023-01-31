@@ -1,7 +1,7 @@
 package com.example.ds_movies.ui.login
 
 import androidx.lifecycle.MutableLiveData
-import com.example.ds_movies.Base.BaseViewModel
+import com.example.ds_movies.ui.base.BaseViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 

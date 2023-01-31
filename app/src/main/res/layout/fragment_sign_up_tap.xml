@@ -55,6 +55,7 @@
                     app:layout_constraintStart_toStartOf="@+id/et_last_name" />
 
                 <EditText
+                    style="@style/AppEditTextStyle"
                     android:id="@+id/et_first_name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -62,17 +63,13 @@
                     android:inputType="textCapSentences"
                     android:hint="first name"
                     android:text="@={vm.FName}"
-                    android:padding="10dp"
-                    android:textSize="12sp"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/silver"
-                    android:background="@drawable/shape_edit_text"
                     android:layout_marginTop="80dp"
                     app:layout_constraintWidth_percent=".4"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
+                    style="@style/AppEditTextStyle"
                     android:id="@+id/et_last_name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -80,11 +77,6 @@
                     android:hint="last name"
                     android:text="@={vm.LName}"
                     android:inputType="textCapSentences"
-                    android:padding="10dp"
-                    android:textSize="12sp"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/silver"
-                    android:background="@drawable/shape_edit_text"
                     android:layout_marginTop="80dp"
                     app:layout_constraintWidth_percent=".4"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -102,6 +94,7 @@
                     app:layout_constraintStart_toStartOf="@+id/et_email_signUp" />
 
                 <EditText
+                    style="@style/AppEditTextStyle"
                     android:id="@+id/et_email_signUp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -110,11 +103,6 @@
                     android:hint="Enter your email address"
                     android:inputType="textEmailAddress"
                     android:text="@={vm.email}"
-                    android:padding="10dp"
-                    android:textSize="12sp"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/silver"
-                    android:background="@drawable/shape_edit_text"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/et_first_name" />
@@ -131,6 +119,7 @@
                     app:layout_constraintStart_toStartOf="@+id/et_mobile_number" />
 
                 <EditText
+                    style="@style/AppEditTextStyle"
                     android:id="@+id/et_mobile_number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -139,11 +128,6 @@
                     android:hint="Enter your phone number"
                     android:inputType="number"
                     android:text="@={vm.phoneNumber}"
-                    android:padding="10dp"
-                    android:textSize="12sp"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/silver"
-                    android:background="@drawable/shape_edit_text"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/et_email_signUp" />
@@ -160,6 +144,7 @@
                     app:layout_constraintStart_toStartOf="@+id/et_password_signUp" />
 
                 <EditText
+                    style="@style/AppEditTextStyle"
                     android:id="@+id/et_password_signUp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -168,11 +153,6 @@
                     android:hint="Enter your password"
                     android:text="@={vm.password}"
                     android:inputType="textPassword"
-                    android:padding="10dp"
-                    android:textSize="12sp"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/silver"
-                    android:background="@drawable/shape_edit_text"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/et_mobile_number" />
@@ -189,6 +169,7 @@
                     app:layout_constraintStart_toStartOf="@+id/et_confirm_password__signUp" />
 
                 <EditText
+                    style="@style/AppEditTextStyle"
                     android:id="@+id/et_confirm_password__signUp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -197,11 +178,6 @@
                     android:hint="Enter your password again"
                     android:text="@={vm.confirmPassword}"
                     android:inputType="textPassword"
-                    android:padding="10dp"
-                    android:textSize="12sp"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/silver"
-                    android:background="@drawable/shape_edit_text"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/et_password_signUp" />

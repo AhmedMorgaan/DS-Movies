@@ -1,4 +1,4 @@
-package com.example.ds_movies.adapter
+package com.example.ds_movies.ui.home
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,19 +8,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.ds_movies.model.ResultsItem
 import com.example.ds_movies.R
+import com.example.ds_movies.data.ResultsItem
 
-class MovieListAdapter(private var movies :MutableList<ResultsItem?>?) :RecyclerView.Adapter<MovieListAdapter.ViewHolder>() {
+class MoviePopularListAdapter(private var movies :MutableList<ResultsItem?>?)
+    :RecyclerView.Adapter<MoviePopularListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view :View =LayoutInflater.from(parent.context).inflate(R.layout.item_movie,parent,false)
         return ViewHolder(view)
     }
-    //https://miro.medium.com/max/1200/1*jYvicNC-2KCMmkzeuh0Hwg.png
-   // https://api.themoviedb.org/3/movie/popular?6PFJrMvoQwBxQITLYHj09VeJ37q.jpg
-    //https://api.themoviedb.org/3/movie/popular?api_key=7ebfbb8ac4704697733b140b8d5e1e59&poster_path=nkayOAUBUu4mMvyNf9iHSUiPjF1.jpg
-    //"https://api.themoviedb.org/3/movie/popular"+movie?.posterPath)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
        val movie = movies?.get(position)

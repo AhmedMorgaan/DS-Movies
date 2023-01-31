@@ -1,4 +1,4 @@
-package com.example.ds_movies.api
+package com.example.ds_movies.data.api
 
 
 import retrofit2.Retrofit
@@ -13,8 +13,8 @@ class ApiManager {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        fun getInstance(): WepServices {
-            return retrofit.create(WepServices::class.java)
+        fun getInstance(): MoviesApi {
+            return retrofit.create(MoviesApi::class.java)
         }
     }
 }

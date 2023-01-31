@@ -1,4 +1,4 @@
-package com.example.ds_movies.adapter
+package com.example.ds_movies.ui
 
 import android.content.Context
 import androidx.fragment.app.Fragment

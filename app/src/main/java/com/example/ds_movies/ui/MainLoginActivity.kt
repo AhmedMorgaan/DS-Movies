@@ -6,7 +6,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
 import com.example.ds_movies.R
-import com.example.ds_movies.adapter.MainLoginAdapter
 import com.example.ds_movies.databinding.ActivityMainLoginBinding
 import com.example.ds_movies.ui.login.LoginViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton

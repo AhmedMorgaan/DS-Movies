@@ -1,30 +1,27 @@
-package com.example.ds_movies.Base
+package com.example.ds_movies.ui.base
 
 import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.ViewModel
 
-open abstract class BaseActivity<T : ViewDataBinding , VM : ViewModel> : AppCompatActivity() {
+abstract class BaseActivity<T : ViewDataBinding , VM : BaseViewModel> : AppCompatActivity() {
 
-   // lateinit var activity :AppCompatActivity
+    lateinit var activity :AppCompatActivity
     lateinit var dataBinding : T
     lateinit var viewModel : VM
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       // activity = this
-        dataBinding = getViewBinding()
-        setContentView(dataBinding.root)
-       // dataBinding = DataBindingUtil.setContentView(this,getLayoutId())
+        activity = this
+        dataBinding = DataBindingUtil.setContentView(this , getLayoutId())
         viewModel  = generateViewModel()
     }
 
     abstract fun getLayoutId():Int
-    abstract fun getViewBinding(): T
     abstract fun generateViewModel(): VM
 
     @SuppressLint("SuspiciousIndentation")
@@ -47,6 +44,7 @@ open abstract class BaseActivity<T : ViewDataBinding , VM : ViewModel> : AppComp
 
 
 
+    @SuppressLint("SuspiciousIndentation")
     fun showMessage(title:Int?,
                     message:Int?,
                     posActionName:Int?,

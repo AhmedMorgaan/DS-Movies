@@ -28,17 +28,12 @@
 
 
         <EditText
+            style="@style/AppEditTextStyle"
             android:id="@+id/et_email_login"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Enter your email address"
-            android:fontFamily="@font/comic_sans"
-            android:textColor="@color/black"
-            android:textColorHint="@color/silver"
             android:text="@={vm.email}"
-            android:padding="10dp"
-            android:textSize="12sp"
-            android:background="@drawable/shape_edit_text"
             android:layout_marginTop="80dp"
             app:layout_constraintWidth_percent=".8"
             app:layout_constraintEnd_toEndOf="parent"
@@ -63,19 +58,14 @@
             app:layout_constraintTop_toBottomOf="@+id/et_email_login" />
 
         <EditText
+            style="@style/AppEditTextStyle"
             android:id="@+id/et_password_login"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Enter your password"
             android:inputType="textPassword"
-            android:fontFamily="@font/comic_sans"
-            android:textColorHint="@color/silver"
-            android:textColor="@color/black"
-            android:padding="10dp"
-            android:textSize="12sp"
             android:text="@={vm.password}"
             android:layout_marginTop="70dp"
-            android:background="@drawable/shape_edit_text"
             app:layout_constraintWidth_percent=".8"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

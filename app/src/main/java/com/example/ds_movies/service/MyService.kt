@@ -1,17 +1,18 @@
-package com.example.ds_movies
+package com.example.ds_movies.service
 
 import android.annotation.SuppressLint
 import android.app.Service
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.IBinder
+import com.example.ds_movies.R
 
 class MyService : Service() {
 
     lateinit var mp: MediaPlayer
     override fun onCreate() {
         super.onCreate()
-        mp = MediaPlayer.create(this,R.raw.aleky_eyoun)
+        mp = MediaPlayer.create(this, R.raw.aleky_eyoun)
     }
 
     @SuppressLint("SuspiciousIndentation")
