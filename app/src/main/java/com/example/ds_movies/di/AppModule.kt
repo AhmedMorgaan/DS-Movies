@@ -1,11 +1,14 @@
 package com.example.ds_movies.di
 
+import com.example.ds_movies.core.Constant
+import com.example.ds_movies.core.MyInterceptor
 import com.example.ds_movies.data.api.MoviesApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -18,7 +21,11 @@ object AppModule {
     @Provides
     @Singleton
     fun provideOkHttp () : OkHttpClient{
+        val logger = HttpLoggingInterceptor()
+        logger.level = HttpLoggingInterceptor.Level.BODY
         return OkHttpClient.Builder()
+            .addInterceptor(MyInterceptor())
+            .addNetworkInterceptor(logger)
             .connectTimeout(3,TimeUnit.MINUTES)
             .readTimeout(3,TimeUnit.MINUTES)
             .writeTimeout(3,TimeUnit.MINUTES)
@@ -29,7 +36,7 @@ object AppModule {
     @Singleton
     fun provideRetrofit(client: OkHttpClient):Retrofit{
         return Retrofit.Builder()
-            .baseUrl(MoviesApi.BASE_URL)
+            .baseUrl(Constant.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

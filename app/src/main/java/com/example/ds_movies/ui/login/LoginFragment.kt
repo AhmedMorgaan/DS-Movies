@@ -21,7 +21,7 @@ class LoginFragment :BaseFragment<FragmentLoginTapBinding,LoginViewModel>(R.layo
        // binding.setLifecycleOwner { this.lifecycle }
 
         viewModel.authUser.observe(viewLifecycleOwner, Observer {
-            findNavController().navigate(R.id.action_loginFragment_to_moviesPopularFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_mainCategoryFragment)
         })
 
 

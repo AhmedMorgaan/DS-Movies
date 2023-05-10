@@ -22,7 +22,7 @@ class OnboardingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btn_continue.setOnClickListener {
-            findNavController().navigate(R.id.action_onboardingFragment_to_moviesPopularFragment)
+            findNavController().navigate(R.id.action_onboardingFragment_to_welcomeFragment)
         }
     }
 

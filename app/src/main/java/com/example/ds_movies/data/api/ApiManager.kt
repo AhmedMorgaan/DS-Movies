@@ -4,7 +4,9 @@ package com.example.ds_movies.data.api
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ApiManager {
+
+class ApiManager  {
+
 
     companion object {
 

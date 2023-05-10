@@ -13,15 +13,15 @@ import com.example.ds_movies.ui.base.BaseViewModel
 import kotlinx.android.synthetic.main.fragment_login_tap.view.*
 
 abstract class BaseFragment<T : ViewDataBinding , VM : BaseViewModel>(resId :Int) : Fragment(resId) {
-    lateinit var activity : AppCompatActivity
+    lateinit var activityInside : AppCompatActivity
 
     lateinit var binding :T
    protected abstract fun getViewBinding(v : View):T
-    protected abstract val viewModel :VM
+   protected abstract val viewModel :VM
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        activity = context as AppCompatActivity
+        activityInside = context as AppCompatActivity
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,7 +52,7 @@ abstract class BaseFragment<T : ViewDataBinding , VM : BaseViewModel>(resId :Int
                     negActionName:String?,
                     negAction: DialogInterface.OnClickListener?,
                     isCancelable:Boolean){
-        val dialogBuilder = AlertDialog.Builder(activity)
+        val dialogBuilder = AlertDialog.Builder(activityInside)
         dialogBuilder.setTitle(title)
         dialogBuilder.setMessage(message)
         dialogBuilder.setPositiveButton(posActionName,posAction)
@@ -70,7 +70,7 @@ abstract class BaseFragment<T : ViewDataBinding , VM : BaseViewModel>(resId :Int
                     negAtionNmae:Int?,
                     negAction: DialogInterface.OnClickListener?,
                     isCancelable:Boolean){
-        val dialogBuilder = AlertDialog.Builder(activity)
+        val dialogBuilder = AlertDialog.Builder(activityInside)
         if (title!=null)
             dialogBuilder.setTitle(title)
         if (message!=null)

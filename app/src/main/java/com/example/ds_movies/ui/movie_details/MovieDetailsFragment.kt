@@ -1,4 +1,4 @@
-package com.example.ds_movies.ui.home
+package com.example.ds_movies.ui.movie_details
 
 import android.content.IntentFilter
 import android.os.Bundle
@@ -8,25 +8,23 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.example.d_note.Base.BaseFragment
 import com.example.ds_movies.R
-import com.example.ds_movies.databinding.FragmentMoviesPopularBinding
+import com.example.ds_movies.databinding.FragmentMovieDetailsBinding
 import com.example.ds_movies.service.MyBroadcastReceiver
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
+class MovieDetailsFragment : BaseFragment<FragmentMovieDetailsBinding,MoviesDetailsViewModel>(R.layout.fragment_movie_details) {
 
-class MoviesPopularFragment : BaseFragment<FragmentMoviesPopularBinding,MoviesPopularViewModel>(R.layout.fragment_movies_popular) {
-
-    override val viewModel by viewModels<MoviesPopularViewModel>()
-
-    private var adapter = MoviePopularListAdapter(null)
-    val receiver = MyBroadcastReceiver()
-    val filter = IntentFilter("android.intent.action.HEADSET_PLUG")
+    override val viewModel : MoviesDetailsViewModel by viewModels()
+    private var adapter = MovieDetailsAdapter(null)
+    private val receiver = MyBroadcastReceiver()
+    private val filter = IntentFilter("android.intent.action.HEADSET_PLUG")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
 
-
-
-        requireActivity().registerReceiver(receiver, filter,)
+        requireActivity().registerReceiver(receiver, filter)
         viewModel.getResult()
         observeLiveData()
 
@@ -64,8 +62,8 @@ class MoviesPopularFragment : BaseFragment<FragmentMoviesPopularBinding,MoviesPo
         })
     }
 
-    override fun getViewBinding(v: View): FragmentMoviesPopularBinding {
-        return FragmentMoviesPopularBinding.bind(v)
+    override fun getViewBinding(v: View): FragmentMovieDetailsBinding {
+        return FragmentMovieDetailsBinding.bind(v)
     }
 
 }

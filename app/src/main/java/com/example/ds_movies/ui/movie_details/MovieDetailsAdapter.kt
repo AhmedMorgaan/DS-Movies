@@ -1,4 +1,4 @@
-package com.example.ds_movies.ui.home
+package com.example.ds_movies.ui.movie_details
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -6,13 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.ds_movies.R
-import com.example.ds_movies.data.ResultsItem
+import com.example.ds_movies.data.models.ResultsItem
 
-class MoviePopularListAdapter(private var movies :MutableList<ResultsItem?>?)
-    :RecyclerView.Adapter<MoviePopularListAdapter.ViewHolder>() {
+class MovieDetailsAdapter(private var movies :MutableList<ResultsItem?>?)
+    :RecyclerView.Adapter<MovieDetailsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view :View =LayoutInflater.from(parent.context).inflate(R.layout.item_movie,parent,false)
@@ -31,10 +32,24 @@ class MoviePopularListAdapter(private var movies :MutableList<ResultsItem?>?)
         holder.movieDescription.text = movie?.overview
         holder.movieReleaseDate.text = movie?.releaseDate
         holder.movieVoteRate.text = movie?.voteAverage.toString()
+        holder.movieTrailer.setOnClickListener {
+            //onItemClickListener?.onItemClick(position, movies)
+            try {
+                it.findNavController()
+                    .navigate(R.id.action_movieDetailsFragment_to_videoTrailerFragment)
+            }catch (e:Exception){
+                Log.e("here",e.localizedMessage)
+            }
+        }
     }
 
     override fun getItemCount(): Int {
         return movies?.size?:0
+    }
+
+    var onItemClickListener : OnItemClickListener? = null
+    interface OnItemClickListener{
+        fun onItemClick(pos:Int,item:MutableList<ResultsItem?>?)
     }
 
     fun changeData (List:MutableList<ResultsItem?>?){
@@ -48,8 +63,10 @@ class MoviePopularListAdapter(private var movies :MutableList<ResultsItem?>?)
         var movieDescription :TextView
         var movieReleaseDate :TextView
         var movieVoteRate :TextView
+        var movieTrailer :TextView
 
         init {
+            movieTrailer = itemView.findViewById(R.id.btn_movie_trailer)
             movieImage = itemView.findViewById(R.id.movie_image)
             movieTitle = itemView.findViewById(R.id.movie_title)
             movieDescription = itemView.findViewById(R.id.movie_description)

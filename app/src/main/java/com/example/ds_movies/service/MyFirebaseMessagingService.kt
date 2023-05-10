@@ -35,12 +35,8 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
         val intent = Intent(this, SomaActivity::class.java)
         val pi :PendingIntent = PendingIntent.getActivity(this,0,intent,0)
-        val bitmap :Bitmap = BitmapFactory.decodeResource(applicationContext.resources,
-            R.drawable.love_you
-        )
-        val bitmapLargeIcon :Bitmap = BitmapFactory.decodeResource(applicationContext.resources,
-            R.drawable.ds
-        )
+        val bitmap :Bitmap = BitmapFactory.decodeResource(applicationContext.resources, R.drawable.love_you)
+        val bitmapLargeIcon :Bitmap = BitmapFactory.decodeResource(applicationContext.resources, R.drawable.ds)
 
 val build = NotificationCompat.Builder(this,CHANNEL_ID)
         build.setSmallIcon(R.drawable.ds_light)
