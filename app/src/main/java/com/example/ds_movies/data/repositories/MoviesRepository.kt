@@ -7,9 +7,9 @@ import javax.inject.Singleton
 @Singleton
 class MoviesRepository @Inject constructor(private val moviesApi :MoviesApi) {
 
-    suspend fun getPopularMovies (api_key:String) = moviesApi.getPopularMovies(api_key)
-
     suspend fun getPopularMovies () = moviesApi.getPopularMovies()
+    suspend fun getMoviesCategory() = moviesApi.getMoviesCategory()
+    suspend fun getMoviesWithGenres(genreId:Int) = moviesApi.getMoviesWithGenres(genreId)
 
 
 }
