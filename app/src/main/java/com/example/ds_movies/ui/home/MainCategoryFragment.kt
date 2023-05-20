@@ -1,14 +1,13 @@
 package com.example.ds_movies.ui.home
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import com.example.d_note.Base.BaseFragment
 import com.example.ds_movies.R
-import com.example.ds_movies.data.models.ResultsItem
+import com.example.ds_movies.data.models.CategoryResponse
 import com.example.ds_movies.databinding.FragmentMainCategoryBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -18,32 +17,35 @@ class MainCategoryFragment : BaseFragment<FragmentMainCategoryBinding,MainCatego
 
     private  val TAG = "MainCategoryFragment"
     override val viewModel :MainCategoryViewModel by viewModels()
-    lateinit var adapter : ParentCategoryListAdapter
-    private var  movieList :MutableList<ResultsItem?>? = null
+    lateinit var parentAdapter : ParentCategoryListAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.e(TAG,"onViewCreated")
 
-
-        viewModel.moviesList.observe(viewLifecycleOwner, Observer {
-            if (it !=null) {
-                movieList = it
-               // Log.e(TAG,movieList.toString())
-            }else{
-                Toast.makeText(requireContext(),"error",Toast.LENGTH_LONG).show()
-            }
-        })
-
-        viewModel.getMoviesCategory()
-        viewModel.moviesCategory.observe(viewLifecycleOwner, Observer {
-
-                adapter = ParentCategoryListAdapter(it,viewModel)
-                binding.categoryParentRecyclerview.setHasFixedSize(true)
-                binding.categoryParentRecyclerview.adapter = adapter
-                Log.e(TAG, it.toString())
-        })
+        binding.progressBar.indeterminateDrawable.setColorFilter(Color.RED,android.graphics.PorterDuff.Mode.SRC_IN)
+        getMoviesCategory()
     }
+
+    private fun getMoviesCategory(){
+        viewModel.getMoviesCategory()
+        viewModel.moviesCategory.observe(viewLifecycleOwner) {
+
+            it?.add(0, CategoryResponse.Genre(1,"Popular"))
+
+            parentAdapter = ParentCategoryListAdapter(it, viewModel)
+            binding.categoryParentRecyclerview.adapter = parentAdapter
+            binding.categoryParentRecyclerview.setHasFixedSize(true)
+            Log.e(TAG, it.toString())
+        }
+//        parentAdapter.onItemClickListener = object :ParentCategoryListAdapter.OnItemClickListener{
+//            override fun onItemClick(pos: Int, item: CategoryResponse.Genre) {
+//                val itemId = item.id
+////                findNavController().navigate(R.id.action_mainCategoryFragment_to_movieDetailsFragment,itemId)
+//            }
+//        }
+    }
+
 
     override fun getViewBinding(v: View): FragmentMainCategoryBinding {
         return FragmentMainCategoryBinding.bind(v)
