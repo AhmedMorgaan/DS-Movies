@@ -1,5 +1,6 @@
 package com.example.ds_movies.core
 
+import com.example.ds_movies.core.utils.Constant
 import okhttp3.Interceptor
 import okhttp3.Response
 

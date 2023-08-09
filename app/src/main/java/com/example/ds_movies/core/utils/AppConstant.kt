@@ -1,4 +1,4 @@
-package com.example.ds_movies.core
+package com.example.ds_movies.core.utils
 
 import android.Manifest
 import android.app.Activity

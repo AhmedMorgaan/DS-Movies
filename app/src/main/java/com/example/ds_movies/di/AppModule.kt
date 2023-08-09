@@ -1,7 +1,7 @@
 package com.example.ds_movies.di
 
-import com.example.ds_movies.core.Constant
 import com.example.ds_movies.core.MyInterceptor
+import com.example.ds_movies.core.utils.Constant
 import com.example.ds_movies.data.api.MoviesApi
 import dagger.Module
 import dagger.Provides

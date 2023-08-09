@@ -1,4 +1,4 @@
-package com.example.ds_movies.ui.movie_details
+package com.example.ds_movies.ui.movieDetails
 
 import androidx.lifecycle.MutableLiveData
 import com.example.ds_movies.data.models.ResultsItem

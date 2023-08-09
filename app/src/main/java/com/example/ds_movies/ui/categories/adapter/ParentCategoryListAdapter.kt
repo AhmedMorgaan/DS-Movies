@@ -1,4 +1,4 @@
-package com.example.ds_movies.ui.home
+package com.example.ds_movies.ui.categories.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,14 +6,15 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ds_movies.R
-import com.example.ds_movies.data.models.CategoryResponse
+import com.example.ds_movies.data.models.Genre
+import com.example.ds_movies.ui.categories.MainCategoryViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class ParentCategoryListAdapter (
-    private val parentCategoryList :MutableList<CategoryResponse.Genre>
+    private val parentCategoryList :MutableList<Genre>
     ,private val viewModel: MainCategoryViewModel
 ): RecyclerView.Adapter<ParentCategoryListAdapter.ViewHolder>() {
 
@@ -53,7 +54,7 @@ class ParentCategoryListAdapter (
 
     var onItemClickListener : OnItemClickListener? = null
     interface OnItemClickListener{
-        fun onItemClick(pos:Int,item:CategoryResponse.Genre)
+        fun onItemClick(pos:Int,item:Genre)
     }
 
     override fun getItemCount(): Int {

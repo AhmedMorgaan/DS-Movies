@@ -1,4 +1,4 @@
-package com.example.ds_movies.ui.movie_details
+package com.example.ds_movies.ui.movieDetails
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.ds_movies.R
+import com.example.ds_movies.core.utils.Constant.Companion.BASE_POSTER_IMAGE_URL
 import com.example.ds_movies.data.models.ResultsItem
 
 class MovieDetailsAdapter(private var movies :MutableList<ResultsItem?>?)
@@ -24,10 +25,9 @@ class MovieDetailsAdapter(private var movies :MutableList<ResultsItem?>?)
        val movie = movies?.get(position)
         Glide
             .with(holder.itemView)
-            .load("https://image.tmdb.org/t/p/w500"+movie?.posterPath)
+            .load(BASE_POSTER_IMAGE_URL+movie?.posterPath)
             .placeholder(R.drawable.ic_launcher_foreground)
             .into(holder.movieImage)
-        movie?.posterPath?.let { Log.e("path", "https://image.tmdb.org/t/p/w500"+movie?.posterPath) }
         holder.movieTitle.text = movie?.title
         holder.movieDescription.text = movie?.overview
         holder.movieReleaseDate.text = movie?.releaseDate
@@ -38,7 +38,7 @@ class MovieDetailsAdapter(private var movies :MutableList<ResultsItem?>?)
                 it.findNavController()
                     .navigate(R.id.action_movieDetailsFragment_to_videoTrailerFragment)
             }catch (e:Exception){
-                Log.e("here",e.localizedMessage)
+                e.localizedMessage?.let { it1 -> Log.e("here", it1) }
             }
         }
     }

@@ -8,13 +8,13 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-@Module
-@InstallIn(SingletonComponent::class)
-object RepoModule {
-
-    @Provides
-    @Singleton
-    fun provideMoviesRepo(moviesApi: MoviesApi):MoviesRepository {
-        return MoviesRepository(moviesApi)
-    }
-}
+//@Module
+//@InstallIn(SingletonComponent::class)
+//object RepoModule {
+//
+//    @Provides
+//    @Singleton
+//    fun provideMoviesRepo(moviesApi: MoviesApi):MoviesRepository {
+//        return MoviesRepository(moviesApi)
+//    }
+//}

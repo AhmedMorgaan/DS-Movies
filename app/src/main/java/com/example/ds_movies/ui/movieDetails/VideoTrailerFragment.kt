@@ -1,4 +1,4 @@
-package com.example.ds_movies.ui.movie_details
+package com.example.ds_movies.ui.movieDetails
 
 import android.content.Context
 import android.content.pm.ActivityInfo
@@ -105,7 +105,7 @@ class VideoTrailerFragment : Fragment() {
 //                .setMimeType(MimeTypes.VIDEO_MPEG)
 //                .build()
 
-                val mediaItem = MediaItem.fromUri(url)
+                var mediaItem = MediaItem.fromUri(url)
                     exoPlayer.setMediaItem(mediaItem)
                     exoPlayer.playWhenReady = playWhenReady
                     exoPlayer.seekTo(currentItem,playBackPosition)

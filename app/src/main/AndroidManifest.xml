@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.ds_movies">
+    package="com.example.ds_movies" >
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -20,12 +24,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DS_Movies"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true" >
+
         <activity
             android:name=".ui.MainActivity"
-            android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,7 +43,7 @@
         </activity>
         <activity
             android:name=".ui.MainLoginActivity"
-            android:exported="true">
+            android:exported="true" >
         </activity>
         <activity
             android:name=".ui.SomaActivity"
@@ -51,11 +56,9 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/white" />
 
-
         <activity
             android:name=".ui.splash.SplashActivity"
             android:exported="true" />
-
 
         <service
             android:name=".service.MyService"
@@ -64,7 +67,7 @@
         <service
             android:name=".service.MyFirebaseMessagingService"
             android:exported="false"
-            tools:ignore="Instantiatable">
+            tools:ignore="Instantiatable" >
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.DS_Movies" parent="Theme.AppCompat.NoActionBar">
+    <style name="Theme.DS_Movies" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/black</item>
-        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorPrimary">@color/black_op</item>
+        <item name="colorPrimaryVariant">@color/black_op</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -32,6 +32,13 @@
         <item name="android:textColorHint"> @color/silver</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.HomeTitleTextStyle" parent="">
+        <item name="android:textColor">@color/semi_gray</item>
+        <item name="fontFamily"> @font/comic_sans_bold</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+
     <style name="Theme.LoginTextStyle" parent="">
         <!-- Primary brand color. -->
 <!--        <item name="android:textStyle">bold</item>-->
@@ -45,4 +52,29 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+
+    <style name="AppTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/Red</item>
+        <item name="tabPaddingStart">20dp</item>
+        <item name="tabPaddingEnd">20dp</item>
+        <item name="tabTextAppearance">@style/AppTabTextAppearance</item>
+        <item name="tabSelectedTextAppearance">@style/AppSelectedTabTextAppearance</item>  //selected color
+    </style>
+
+    <!-- for text -->
+    <style name="AppTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">22sp</item>
+        <item name="android:fontFamily">@font/comic_sans</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="AppSelectedTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">30sp</item>
+        <item name="android:fontFamily">@font/comic_sans</item>
+        <item name="android:textColor">@color/semi_gray</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
 </resources>

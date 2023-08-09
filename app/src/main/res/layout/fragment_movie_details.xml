@@ -6,14 +6,13 @@
     <data>
         <variable
             name="vm"
-            type="com.example.ds_movies.ui.movie_details.MoviesDetailsViewModel" />
+            type="com.example.ds_movies.ui.movieDetails.MoviesDetailsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black"
-        tools:context=".ui.movie_details.HomeActivity">
+        android:background="@color/black">
 
 
 

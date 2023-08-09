@@ -1,4 +1,4 @@
-package com.example.ds_movies.ui.home
+package com.example.ds_movies.ui.categories.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.ds_movies.R
+import com.example.ds_movies.core.utils.Constant.Companion.BASE_POSTER_IMAGE_URL
 import com.example.ds_movies.data.models.ResultsItem
 
 class ChildCategoryListAdapter(
@@ -23,7 +24,7 @@ class ChildCategoryListAdapter(
         val item = moviesList?.get(position)
         holder.movieTitle.text = item?.title
         Glide.with(holder.itemView.context)
-            .load("https://image.tmdb.org/t/p/w500"+item?.posterPath)
+            .load(BASE_POSTER_IMAGE_URL+item?.posterPath)
             .into(holder.movieImage)
 
     }

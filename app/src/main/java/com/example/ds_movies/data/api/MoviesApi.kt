@@ -17,4 +17,7 @@ interface MoviesApi {
 
     @GET("discover/movie")
     suspend fun getMoviesWithGenres(@Query("with_genres") genreId:Int): Response<MoviesResponse>
+
+    @GET("genre/movie/list")
+    suspend fun getMoviesCategoryWithBase() : Response<CategoryResponse>
 }

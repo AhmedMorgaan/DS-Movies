@@ -1,9 +1,9 @@
-package com.example.ds_movies.ui.home
+package com.example.ds_movies.ui.categories
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.ds_movies.data.models.CategoryResponse
+import com.example.ds_movies.data.models.Genre
 import com.example.ds_movies.data.models.ResultsItem
 import com.example.ds_movies.data.repositories.MoviesRepository
 import com.example.ds_movies.ui.base.BaseViewModel
@@ -18,8 +18,8 @@ class MainCategoryViewModel @Inject constructor(
    private val moviesRepository: MoviesRepository
 ):BaseViewModel() {
 
-   private val _moviesCategory = MutableLiveData<MutableList<CategoryResponse.Genre>>()
-           val moviesCategory : MutableLiveData<MutableList<CategoryResponse.Genre>> = _moviesCategory
+   private val _moviesCategory = MutableLiveData<MutableList<Genre>>()
+           val moviesCategory : MutableLiveData<MutableList<Genre>> = _moviesCategory
 
 
 

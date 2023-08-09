@@ -1,4 +1,4 @@
-package com.example.ds_movies.ui.movie_details
+package com.example.ds_movies.ui.movieDetails
 
 import android.content.IntentFilter
 import android.os.Bundle
