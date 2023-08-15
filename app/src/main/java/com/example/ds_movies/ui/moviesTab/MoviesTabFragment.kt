@@ -1,4 +1,4 @@
-package com.example.ds_movies.ui.movies
+package com.example.ds_movies.ui.moviesTab
 
 import android.os.Bundle
 import android.view.View
@@ -19,9 +19,12 @@ class MoviesTabFragment : BaseFragment<FragmentMoviesTabBinding,MoviesTabViewMod
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initGenresTabs()
+        initTopRatedRecyclerView()
     }
 
     private fun initGenresTabs() {
+        viewModel.getMoviesCategories()
+
         viewModel.genresList.observe(viewLifecycleOwner, Observer {
             val list = it
             list.add(0, Genre(0,"All"))
@@ -43,6 +46,13 @@ class MoviesTabFragment : BaseFragment<FragmentMoviesTabBinding,MoviesTabViewMod
             }
         })
          binding.genresTabs.getTabAt(0)?.select()
+    }
+    private fun initTopRatedRecyclerView(){
+        viewModel.getTopRatedMovies(28)
+        viewModel.topRatedMoviesList.observe(viewLifecycleOwner, Observer {
+            val adapter = MoviesListAdapter(it)
+            binding.topRatedRecyclerview.adapter = adapter
+        })
     }
 
     override fun getViewBinding(v: View): FragmentMoviesTabBinding {

@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.ds_movies.R
 import com.example.ds_movies.core.utils.Constant.Companion.BASE_POSTER_IMAGE_URL
-import com.example.ds_movies.data.models.ResultsItem
+import com.example.ds_movies.data.models.MovieItem
 
-class MovieDetailsAdapter(private var movies :MutableList<ResultsItem?>?)
+class MovieDetailsAdapter(private var movies :MutableList<MovieItem?>?)
     :RecyclerView.Adapter<MovieDetailsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -49,10 +49,10 @@ class MovieDetailsAdapter(private var movies :MutableList<ResultsItem?>?)
 
     var onItemClickListener : OnItemClickListener? = null
     interface OnItemClickListener{
-        fun onItemClick(pos:Int,item:MutableList<ResultsItem?>?)
+        fun onItemClick(pos:Int,item:MutableList<MovieItem?>?)
     }
 
-    fun changeData (List:MutableList<ResultsItem?>?){
+    fun changeData (List:MutableList<MovieItem?>?){
         this.movies=List
         notifyDataSetChanged()
     }

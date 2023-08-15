@@ -52,14 +52,7 @@ class MovieDetailsFragment : BaseFragment<FragmentMovieDetailsBinding,MoviesDeta
                 binding.progressBar.visibility = View.GONE
             }
         })
-        viewModel.errorMessageLiveData.observe(viewLifecycleOwner, Observer {
-            showMessage(
-                "Error", it, "ok",
-                { dialogInterface, i ->
-                    dialogInterface.dismiss()
-                }, null, null, false
-            )
-        })
+
     }
 
     override fun getViewBinding(v: View): FragmentMovieDetailsBinding {

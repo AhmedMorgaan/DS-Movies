@@ -10,7 +10,18 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.movies.MoviesTabFragment">
+        tools:context=".ui.moviesTab.MoviesTabFragment">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:outlineSpotShadowColor="@color/Red"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_start"
@@ -62,16 +73,21 @@
             android:layout_marginTop="20dp"
             android:text="@string/top_rated"
             app:layout_constraintStart_toStartOf="@id/guideline_start"
-            app:layout_constraintTop_toBottomOf="@+id/genres_tabs"
-            />
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="300dp"-->
-<!--            android:layout_marginTop="10dp"-->
+            app:layout_constraintTop_toBottomOf="@+id/genres_tabs" />
 
-<!--            app:layout_constraintTop_toBottomOf="@id/txt_top_rated"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="@id/guideline_start"/>-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/top_rated_recyclerview"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/txt_top_rated"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            tools:listitem="@layout/item_movie_card"/>
+
+
 
 
 

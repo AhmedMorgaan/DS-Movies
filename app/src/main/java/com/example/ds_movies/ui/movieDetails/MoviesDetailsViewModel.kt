@@ -1,7 +1,7 @@
 package com.example.ds_movies.ui.movieDetails
 
 import androidx.lifecycle.MutableLiveData
-import com.example.ds_movies.data.models.ResultsItem
+import com.example.ds_movies.data.models.MovieItem
 import com.example.ds_movies.data.repositories.MoviesRepository
 import com.example.ds_movies.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,9 +16,8 @@ class MoviesDetailsViewModel @Inject constructor(
     private val moviesRepository: MoviesRepository
 ) : BaseViewModel() {
 
-    val resultLiveData = MutableLiveData<MutableList<ResultsItem?>?>()
+    val resultLiveData = MutableLiveData<MutableList<MovieItem?>?>()
     var progressBarLiveData = MutableLiveData<Boolean>()
-    val errorMessageLiveData = MutableLiveData<String>()
 
     fun getResult() {
         GlobalScope.launch(Dispatchers.IO) {
@@ -36,7 +35,7 @@ class MoviesDetailsViewModel @Inject constructor(
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
                     progressBarLiveData.value = true
-                    errorMessageLiveData.value = e.localizedMessage
+                    showMessage.value = e.localizedMessage
                 }
             }
 

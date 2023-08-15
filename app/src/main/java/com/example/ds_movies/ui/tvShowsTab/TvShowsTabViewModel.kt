@@ -1,4 +1,4 @@
-package com.example.ds_movies.ui.tvShows
+package com.example.ds_movies.ui.tvShowsTab
 
 import com.example.ds_movies.ui.base.BaseViewModel
 

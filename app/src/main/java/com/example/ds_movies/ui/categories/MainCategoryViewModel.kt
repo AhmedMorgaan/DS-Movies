@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.ds_movies.data.models.Genre
-import com.example.ds_movies.data.models.ResultsItem
+import com.example.ds_movies.data.models.MovieItem
 import com.example.ds_movies.data.repositories.MoviesRepository
 import com.example.ds_movies.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,8 +23,8 @@ class MainCategoryViewModel @Inject constructor(
 
 
 
-     suspend fun getPopularMovies():MutableList<ResultsItem?>?{
-         var movieslist:MutableList<ResultsItem?>? = null
+     suspend fun getPopularMovies():MutableList<MovieItem?>?{
+         var movieslist:MutableList<MovieItem?>? = null
 
             val response = moviesRepository.getPopularMovies()
             try {
@@ -47,8 +47,8 @@ class MainCategoryViewModel @Inject constructor(
         return movieslist
     }
 
-    suspend fun getMoviesWithCategoryId(genreId :Int):MutableList<ResultsItem?>? {
-        var movieslist:MutableList<ResultsItem?>? = null
+    suspend fun getMoviesWithCategoryId(genreId :Int):MutableList<MovieItem?>? {
+        var movieslist:MutableList<MovieItem?>? = null
 
             val response = moviesRepository.getMoviesWithGenres(genreId)
             try {

@@ -16,6 +16,6 @@ class MoviesRepository @Inject constructor(
     suspend fun getMoviesWithGenres(genreId:Int) = moviesApi.getMoviesWithGenres(genreId)
 
     suspend fun getMoviesCategoryWithBase() = retrofitExecutor.makeRequest { moviesApi.getMoviesCategoryWithBase() }
-
+    suspend fun getTopRatedMovies() = retrofitExecutor.makeRequest { moviesApi.getTopRatedMovies() }
 
 }

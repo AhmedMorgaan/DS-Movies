@@ -1,4 +1,4 @@
-package com.example.ds_movies.ui.tvShows
+package com.example.ds_movies.ui.tvShowsTab
 
 import android.view.View
 import androidx.fragment.app.viewModels

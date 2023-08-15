@@ -9,10 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.ds_movies.R
 import com.example.ds_movies.core.utils.Constant.Companion.BASE_POSTER_IMAGE_URL
-import com.example.ds_movies.data.models.ResultsItem
+import com.example.ds_movies.data.models.MovieItem
 
 class ChildCategoryListAdapter(
-    private val moviesList:MutableList<ResultsItem?>?
+    private val moviesList:MutableList<MovieItem?>?
     ) : RecyclerView.Adapter<ChildCategoryListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
